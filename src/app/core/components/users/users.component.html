@@ -1,0 +1,16 @@
+<div class="users-block">
+    <div class="wrapper">
+
+        <div class="users-body">
+            @if (usersService.getUsers().length>0 ) {
+            @for (user of usersService.getUsers(); track user) {
+            <app-user-card [user]="user" />
+            }
+            } @else {
+            <b style="text-align: center">
+                There are no users
+            </b>
+            }
+        </div>
+    </div>
+</div>

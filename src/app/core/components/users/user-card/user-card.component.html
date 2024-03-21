@@ -1,0 +1,28 @@
+<mat-card class="user-card">
+
+    <mat-card-content>
+        <div class="info-row">
+            <mat-icon class="icon">person</mat-icon>
+            <p class="info-text">{{ user.name | titlecase }}</p>
+        </div>
+        <div class="info-row">
+            <mat-icon class="icon">email</mat-icon>
+            <p class="info-text">{{ user.email | titlecase }}</p>
+        </div>
+        <div class="info-row">
+            <mat-icon class="icon">phone</mat-icon>
+            <p class="info-text">{{ user.phone }}</p>
+        </div>
+        <div class="info-row">
+            <mat-icon class="icon">assignment_ind</mat-icon>
+            <p class="info-text">ID: {{ user.id }}</p>
+        </div>
+        <mat-card-footer>
+            <div class="delete-icon" (click)="onDeleteUser(user.id)">
+                <button mat-raised-button color="warn">Delete user</button>
+            </div>
+        </mat-card-footer>
+    </mat-card-content>
+
+
+</mat-card>

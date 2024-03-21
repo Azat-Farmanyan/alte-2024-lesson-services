@@ -1,0 +1,52 @@
+<div class="form-block">
+    <div class="wrapper">
+        <form [formGroup]="myForm" class="my-form" (ngSubmit)="submitForm()">
+            <mat-form-field class="form-field">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Ex. John Doe">
+
+
+                @if (myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)) {
+                <mat-error>
+                    @if (myForm.get('name')?.errors?.['required']) {
+                    <span>Name is required</span>
+                    }
+                </mat-error>
+                }
+
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Ex. pat@example.com">
+                @if (myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)) {
+                <mat-error>
+                    @if (myForm.get('name')?.errors?.['required']) {
+                    <span>Email is required</span>
+                    }
+                    @if (myForm.get('email')?.errors?.['email']) {
+                    <span>Please enter a valid email address</span>
+                    }
+                </mat-error>
+                }
+
+            </mat-form-field>
+
+
+
+            <mat-form-field class="form-field">
+                <mat-label>Phone</mat-label>
+                <input type="number" matInput formControlName="phone" placeholder="Ex. 555-666-777">
+                @if (myForm.get('phone')?.invalid && (myForm.get('phone')?.dirty || myForm.get('phone')?.touched)) {
+                <mat-error>
+                    @if (myForm.get('phone')?.errors?.['required']) {
+                    <span>Phone number is required</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" [disabled]="myForm.invalid">Submit</button>
+        </form>
+    </div>
+</div>
